@@ -4,8 +4,9 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Calendar;
 import br.fatec.smartbooking.utils.LanguageConstants;
+import jade.util.leap.Serializable;
 
-public class Booking {
+public class Booking implements Serializable{
 	private int idBooking;
 	private Room room;
 	private String cpfCustomer;
