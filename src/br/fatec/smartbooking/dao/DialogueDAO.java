@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import br.fatec.smartbooking.model.Dialogue;
+import br.fatec.smartbooking.utils.BehaviourConstants;
 
 public class DialogueDAO implements IDialogue {
 
@@ -28,7 +29,7 @@ public class DialogueDAO implements IDialogue {
 				dialogue.setAnswer(resultSet.getString("answer_text"));
 				dialogue.setBehaviour(resultSet.getInt("id_behaviour"));
 			} else {
-				dialogue.setAnswer("Desculpe, eu não entendi");
+				dialogue.setBehaviour(BehaviourConstants.NOT_UNDERSTOOD);
 			}
 
 			connection.close();
