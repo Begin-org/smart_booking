@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 import br.fatec.smartbooking.model.Dialogue;
 import br.fatec.smartbooking.utils.BehaviourConstants;
 import br.fatec.smartbooking.view.Gui;
@@ -46,7 +45,7 @@ public class CustomerAgent extends Agent {
 				Constructor<Gui> constructor = this.gui.getDeclaredConstructor(CustomerAgent.class);
 				constructor.setAccessible(true);
 				this.instanceGui = constructor.newInstance(this);
-			
+
 				this.getQuestionFromCustomer.invoke(this.instanceGui, dialogue);
 
 			} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
