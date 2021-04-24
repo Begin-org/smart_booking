@@ -3,7 +3,9 @@ package br.fatec.smartbooking.model;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 
-public class RoomType {
+import jade.util.leap.Serializable;
+
+public class RoomType implements Serializable{
 	private int idRoomType;
 	private String title;
 	private String description;

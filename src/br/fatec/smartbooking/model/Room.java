@@ -1,6 +1,8 @@
 package br.fatec.smartbooking.model;
 
-public class Room {
+import jade.util.leap.Serializable;
+
+public class Room implements Serializable{
 	private int idRoom;
 	private String roomNumber;
 	private RoomType roomType;
