@@ -111,7 +111,6 @@ public class ReceptionistAgent extends Agent {
 								|| dialogue.getBehaviour() == BehaviourConstants.BOOK_ROOM
 								|| dialogue.getBehaviour() == BehaviourConstants.SHOW_CUSTOMER_BOOKINGS) {
 
-
 							ACLMessage inform = request.createReply();
 							inform.setPerformative(ACLMessage.INFORM);
 							inform.setContentObject(dialogue);
