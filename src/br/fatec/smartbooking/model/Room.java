@@ -44,8 +44,8 @@ public class Room implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Quarto: " + this.roomType.getTitle() + "\n" + this.roomType.getDescription() + "\n" + "Preço diário: "
-				+ this.roomType.getPricePerDay() + "\n";
+		return "Quarto: " + this.roomType.getTitle() + "<br>" + this.roomType.getDescription() + "<br>" + "Preço diário: "
+				+ this.roomType.getPricePerDay() + "<br>";
 	}
 
 }

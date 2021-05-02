@@ -1,5 +1,6 @@
-package br.fatec.smartbooking.view;
+package br.fatec.smartbooking.main;
 
+import br.fatec.smartbooking.view.windows.ChatView;
 import jade.core.Profile;
 import jade.core.ProfileImpl;
 import jade.wrapper.AgentController;
@@ -21,7 +22,7 @@ public class Main {
 		try {
 
 			customerAgentController = containerController.createNewAgent("Customer",
-					"br.fatec.smartbooking.agents.CustomerAgent", new Object[] { Gui.class });
+					"br.fatec.smartbooking.agents.CustomerAgent", new Object[] { ChatView.class });
 			receptionistAgentController = containerController.createNewAgent("Receptionist",
 					"br.fatec.smartbooking.agents.ReceptionistAgent", null);
 
@@ -32,6 +33,7 @@ public class Main {
 			e.printStackTrace();
 			System.out.println("Estamos com problemas na aplicação! Tente novamente mais tarde.");
 		}
+		
 	}
 
 }
