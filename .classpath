@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry excluding="br/fatec/smartbooking/view/assets/fonts/|br/fatec/smartbooking/view/assets/images/|br/fatec/smartbooking/view/assets/|br/fatec/smartbooking/view/assets/|br/fatec/smartbooking/view/assets/images/|br/fatec/smartbooking/view/assets/fonts/|br/fatec/smartbooking/view/assets/|br/fatec/smartbooking/view/assets/fonts/|br/fatec/smartbooking/view/assets/images/" kind="src" path="src"/>
+	<classpathentry excluding="fonts/|images/" kind="src" path="src/br/fatec/smartbooking/view/assets"/>
+	<classpathentry kind="src" path="src/br/fatec/smartbooking/view/assets/fonts"/>
+	<classpathentry kind="src" path="src/br/fatec/smartbooking/view/assets/images"/>
 	<classpathentry exported="true" kind="lib" path="C:/jade/lib/jade.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/erika/OneDrive/Documentos/Erika/FATEC/PI/risecode-administrative-master/mysql-connector-java-5.1.46.jar"/>
 	<classpathentry kind="output" path="bin"/>

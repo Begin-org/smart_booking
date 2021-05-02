@@ -28,8 +28,6 @@ public class ReceptionistAgent extends Agent {
 		serviceDescription.setName("Reserva de quartos");
 		this.registerService(serviceDescription);
 
-		System.out.println("Olá, em que posso ajudar?");
-
 		MessageTemplate protocol = MessageTemplate.MatchProtocol(FIPANames.InteractionProtocol.FIPA_REQUEST);
 		MessageTemplate perfomative = MessageTemplate.MatchPerformative(ACLMessage.REQUEST);
 		MessageTemplate pattern = MessageTemplate.and(protocol, perfomative);
@@ -84,17 +82,17 @@ public class ReceptionistAgent extends Agent {
 								for (int i = 0; i < dialogue.getRoomsAvailable().size(); i++) {
 									answer += "Opção "
 											+ dialogue.getRoomsAvailable().get(i).getRoomType().getIdRoomType() + ": "
-											+ dialogue.getRoomsAvailable().get(i).getRoomType().getTitle() + "\n"
-											+ dialogue.getRoomsAvailable().get(i).getRoomType().getDescription() + "\n"
+											+ dialogue.getRoomsAvailable().get(i).getRoomType().getTitle() + " "
+											+ dialogue.getRoomsAvailable().get(i).getRoomType().getDescription() + " "
 											+ "Preço diário: "
 											+ dialogue.getRoomsAvailable().get(i).getRoomType().getPricePerDay();
 
 									if (i != dialogue.getRoomsAvailable().size() - 1) {
-										answer += "\n\n\n";
+										answer += "<br><br><br>";
 									}
 								}
 
-								dialogue.setAnswer(dialogue.getAnswer() + "\n\n" + answer);
+								dialogue.setAnswer(dialogue.getAnswer() + "<br><br>" + answer);
 							}
 
 						}

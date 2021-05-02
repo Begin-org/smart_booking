@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import br.fatec.smartbooking.model.Dialogue;
 import br.fatec.smartbooking.utils.BehaviourConstants;
-import br.fatec.smartbooking.view.Gui;
+import br.fatec.smartbooking.view.windows.ChatView;
 import jade.core.Agent;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
@@ -20,8 +20,8 @@ import jade.proto.AchieveREInitiator;
 public class CustomerAgent extends Agent {
 
 	private Dialogue dialogue;
-	private Class<Gui> gui;
-	private Gui instanceGui;
+	private Class<ChatView> gui;
+	private ChatView instanceGui;
 	private Method getQuestionFromCustomer;
 	private Method getAnswer;
 
@@ -32,7 +32,7 @@ public class CustomerAgent extends Agent {
 
 			try {
 
-				this.gui = (Class<Gui>) arguments[0];
+				this.gui = (Class<ChatView>) arguments[0];
 
 				Class<Dialogue> partypesDialogue[] = new Class[1];
 				partypesDialogue[0] = Dialogue.class;
@@ -42,7 +42,7 @@ public class CustomerAgent extends Agent {
 
 				this.dialogue = new Dialogue();
 
-				Constructor<Gui> constructor = this.gui.getDeclaredConstructor(CustomerAgent.class);
+				Constructor<ChatView> constructor = this.gui.getDeclaredConstructor(CustomerAgent.class);
 				constructor.setAccessible(true);
 				this.instanceGui = constructor.newInstance(this);
 

@@ -110,16 +110,16 @@ public class Booking implements Serializable{
 	@Override
 	public String toString() {
 		if (this.idBooking != 0) {
-			return "Você tem uma reserva ativa!\n" + "Quarto: " + this.getRoom().getRoomType().getTitle() + "\n"
-					+ this.getRoom().getRoomType().getDescription() + "\n" + "Preço diário: "
-					+ this.getRoom().getRoomType().getPricePerDay() + "\n" + "Número do quarto: "
-					+ this.getRoom().getRoomNumber() + "\n" + "Dia de entrada: "
-					+ LanguageConstants.DATE_FORMAT.format(this.getStartDate().getTime()) + "\n" + "Dia de saída: "
-					+ LanguageConstants.DATE_FORMAT.format(this.getEndDate().getTime()) + "\n" + "Período de estadia: "
-					+ this.getPeriodInDays() + " dias\n" + "Preço total da estadia: "
+			return "Você tem uma reserva ativa! " + "Quarto: " + this.getRoom().getRoomType().getTitle() + "<br> "
+					+ this.getRoom().getRoomType().getDescription() + " " + "Preço diário: "
+					+ this.getRoom().getRoomType().getPricePerDay() + ". " + "Número do quarto: "
+					+ this.getRoom().getRoomNumber() + ". " + "Dia de entrada: "
+					+ LanguageConstants.DATE_FORMAT.format(this.getStartDate().getTime()) + ". " + "Dia de saída: "
+					+ LanguageConstants.DATE_FORMAT.format(this.getEndDate().getTime()) + ". " + "Período de estadia: "
+					+ this.getPeriodInDays() + " dias. " + "Preço total da estadia: "
 					+ NumberFormat.getCurrencyInstance(br.fatec.smartbooking.utils.LanguageConstants.LOCALE)
 							.format(this.getFullPrice())
-					+ "\n" + "Data da reserva: "
+					+ ". " + "Data da reserva: "
 					+ LanguageConstants.DATETIME_FORMAT.format(this.getBookingDate().getTime());
 		} else {
 			return "Você não tem reservas ativas";
