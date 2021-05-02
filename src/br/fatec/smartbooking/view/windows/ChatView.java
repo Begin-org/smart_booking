@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import br.fatec.smartbooking.view.components.JImage;
+import br.fatec.smartbooking.view.components.JLoadingMessage;
 import br.fatec.smartbooking.view.components.JMessage;
 import br.fatec.smartbooking.view.components.JRoundedLabel;
 import br.fatec.smartbooking.view.components.JRoundedTextField;
@@ -64,6 +65,8 @@ public class ChatView extends Window implements MouseListener {
 
 	private int heightOfPnlMessages;
 	private int colorTheme;
+	
+	JLoadingMessage loadingMessage;
 
 	public ChatView(CustomerAgent customerAgent) {
 
@@ -109,6 +112,7 @@ public class ChatView extends Window implements MouseListener {
 		pnlMessages.setLocation(0, 0);
 		pnlMessages.setPreferredSize(new Dimension(350, 390));
 		pnlMessages.setSize(350, 350);
+		
 
 		jspScrollBar = new JScrollPane();
 		jspScrollBar.setSize(getWidth() - 50, 400);
@@ -177,12 +181,21 @@ public class ChatView extends Window implements MouseListener {
 		add(bookAction);
 
 		historyMessages = new ArrayList<JMessage>();
+		
+		loadingMessage = new JLoadingMessage(15);
+		loadingMessage.setLocation(20, pnlHeader.getHeight()/2);
+		loadingMessage.setBackground(headerColor);
+		pnlHeader.add(loadingMessage);
 
 	}
 
 	public void showMessage(String message, int type) {
 		JMessage pnlMessage;
 
+		if(type == JMessage.MESSAGE_RECEIVED) {
+			loadingMessage.initializeLoading();
+		}
+		
 		pnlMessage = new JMessage(15, message, type, colorTheme);
 
 		pnlMessage.setLocation(defineMessageLocation(pnlMessage));
@@ -310,6 +323,7 @@ public class ChatView extends Window implements MouseListener {
 		showRoomsAction.setBackground(headerColor);
 		bookAction.setBackground(headerColor);
 		cancelAction.setBackground(headerColor);
+		loadingMessage.setBackground(headerColor);
 
 		for (JMessage message : historyMessages) {
 
@@ -337,6 +351,7 @@ public class ChatView extends Window implements MouseListener {
 		cancelAction.setBackground(headerColor);
 		showRoomsAction.setBackground(headerColor);
 		bookAction.setBackground(headerColor);
+		loadingMessage.setBackground(headerColor);
 
 		for (JMessage message : historyMessages) {
 
@@ -535,7 +550,7 @@ public class ChatView extends Window implements MouseListener {
 										JMessage.MESSAGE_RECEIVED);
 							}
 						} else {
-							dialogue.setBehaviour(1);
+							dialogue.setBehaviour(BehaviourConstants.ANSWER_ONLY);
 							showMessage("Operação cancelada", JMessage.MESSAGE_RECEIVED);
 							cancelAction.setVisible(false);
 							showRoomsAction.setVisible(true);
