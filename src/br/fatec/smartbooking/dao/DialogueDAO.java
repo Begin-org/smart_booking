@@ -21,7 +21,7 @@ public class DialogueDAO implements IDialogue {
 					+ "answers.answer_text, count_occurrences(?, questions.question_text) AS occurrences "
 					+ "FROM questions INNER JOIN questions_answers ON questions_answers.id_question = questions.id_question "
 					+ "INNER JOIN answers ON questions_answers.id_answer = answers.id_answer "
-					+ "GROUP BY questions.id_question HAVING occurrences > 0 ORDER BY occurrences, questions.strong_word DESC LIMIT 0,1");
+					+ "GROUP BY questions.id_question HAVING occurrences > 0 ORDER BY occurrences DESC, questions.strong_word DESC LIMIT 0,1");
 			preparedStatement.setString(1, dialogue.getQuestion());
 			resultSet = preparedStatement.executeQuery();
 
